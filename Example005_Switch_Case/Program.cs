@@ -16,6 +16,10 @@ break;
 case "глаша":
     System.Console.WriteLine($"Привет челом красная Глаша !");
 break;
+case "ольга":
+    System.Console.WriteLine($"Привет величавая Ольга !");
+break;
+
 default:
     System.Console.WriteLine($"Привет незнакомая {username} !");
 break;
