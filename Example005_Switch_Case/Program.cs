@@ -1,8 +1,9 @@
 ﻿Console.Clear();
 System.Console.Write("Введите Ваше имя: ");
-string ? username = Console.ReadLine();
+string ? username= Console.ReadLine();
 
 switch(username.ToLower() ){
+    
 case "маша":
     System.Console.WriteLine($"Привет, дорогая Маша !");
 break;
