@@ -2,7 +2,7 @@
 System.Console.Write("Введите Ваше имя: ");
 string ? username= Console.ReadLine();
 
-switch(username.ToLower() ){
+switch(username?.ToLower() ){
     
 case "маша":
     System.Console.WriteLine($"Привет, дорогая Маша !");
