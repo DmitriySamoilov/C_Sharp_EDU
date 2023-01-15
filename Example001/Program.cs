@@ -1,4 +1,4 @@
-﻿
+﻿Console.Clear();
 Console.WriteLine("Hello, Huge World!");
 
 int a=getIntTryParse(false);
