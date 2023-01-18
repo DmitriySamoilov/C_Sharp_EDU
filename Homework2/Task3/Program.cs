@@ -2,25 +2,24 @@
 // 6 -> да
 // 7 -> да
 // 1 -> нет
-
-
-int Number_1_7()  //Метод генерации числа 1-7
+int InputIntNumber(string numberName)
 {
-    int number;         //Возвращаемое число
-    bool trPBool;       //Результат TryParse
-    string? request;    //Первичный текстовый запрос
-    while (true)
-    {
-        System.Console.Write("Введите число 1-7: ");
-        request =Console.ReadLine();                   //Запрос числа
-        trPBool=int.TryParse (request, out number);    //Конверсия string в int. true - удачно, false - нет, number - результат конверсии
-        if (trPBool&&number > 0 && number < 8) break; //Выход из цикла
-        System.Console.WriteLine("Ошибка");
-    }
-    return number;
+
+Console.Write($"Input integer number {numberName}: ");
+int number;
+
+while (!int.TryParse(Console.ReadLine(), out number))
+{
+
+    Console.WriteLine("You inputed something wrong! Try again.");
+    Console.Write($"Input integer number {numberName}: ");
+
 }
 
-int weekDayNumber = Number_1_7();                                        //Запрос числа
-string[] weekDays = { "Нет", "Нет", "Нет", "Нет", "Нет", "Да", "Да" };  //Распределение выходных по неделе 
+return number;
+}
 
-System.Console.WriteLine(weekDays[(weekDayNumber - 1)]);                //Вывод результата
+int weekDayNumber =InputIntNumber("1-7");                                        //Запрос числа
+if(0<weekDayNumber&&weekDayNumber<6) System.Console.WriteLine("Нет");
+else if (5<weekDayNumber&&weekDayNumber<8)  System.Console.WriteLine("Да");
+else System.Console.WriteLine("Число должно быть 1-7!");

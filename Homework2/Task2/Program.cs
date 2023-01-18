@@ -4,23 +4,24 @@
 // 78 -> третьей цифры нет
 // 32679 -> 6
 
-int Number()  //Метод генерации целого числа
+int InputIntNumber(string numberName)
 {
-    int number;         //Возвращаемое число
-    bool trPBool;       //Результат TryParse
-    string? request;    //Первичный текстовый запрос
-    while (true)
+
+    Console.Write($"Input {numberName} integer number: ");
+    int number;
+
+    while (!int.TryParse(Console.ReadLine(), out number))
     {
-        System.Console.Write("Введите целое число ");
-        request = Console.ReadLine();                   //Запрос числа
-        trPBool = int.TryParse(request, out number);    //Конверсия string в int. true - удачно, false - нет, number - результат конверсии
-        if (trPBool) break;                            //Выход из цикла при успешной конверсии
-        System.Console.WriteLine("Ошибка");
+
+        Console.WriteLine("You inputed something wrong! Try again.");
+        Console.Write($"Input {numberName} integer number: ");
+
     }
+
     return number;
 }
 
-int number = Number();//Получено целое число
+int number = InputIntNumber("");//Получено целое число
 if (number > 99 || number < -99)
 {
     number = number / 100; //Число уменьшено на два разряда

@@ -3,26 +3,31 @@
 // 782 -> 8
 // 918 -> 1
 
-int ThreeDigitalNumber()  //Метод генерации трехзначного числа
+int InputIntNumber(string numberName)
 {
-    int number;         //Возвращаемое число
-    bool trPBool;       //Результат TryParse
-    string? request;    //Первичный текстовый запрос
-    while (true)
+
+    Console.Write($"Input {numberName} integer number: ");
+    int number;
+
+    while (!int.TryParse(Console.ReadLine(), out number))
     {
-        System.Console.Write("Введите трехзначное число ");
-        request = Console.ReadLine();                   //Запрос числа
-        trPBool = int.TryParse(request, out number);    //Конверсия string в int. true - удачно, false - нет, number - результат конверсии
-        if (trPBool && number > 99 && number < 1000) break; //Выход из цикла для положительных чисел
-        if (trPBool && number > -1000 && number < -99) break;  //Выход из цикла для отрицательных чисел
-        System.Console.WriteLine("Ошибка");
+
+        Console.WriteLine("You inputed something wrong! Try again.");
+        Console.Write($"Input {numberName} integer number: ");
+
     }
+
     return number;
 }
 
 
 
-int number = ThreeDigitalNumber();
-number = number / 10; //Число преобразовано в двухзначное
-number = Math.Abs(number % 10); //Найдено вторая цифра исходного числа, по модулю - убираем знак отрицательных чисел
-System.Console.WriteLine($"Вторая цифра {number}");
+
+int number = InputIntNumber("a three-digit");
+if ((number > 99 && number < 1000) || (number < -99 && number > -1000))// Берем только трехзначные положительные или отрицательные числа
+{
+    number = number / 10; //Число преобразовано в двухзначное
+    number = Math.Abs(number % 10); //Найдено вторая цифра исходного числа, по модулю - убираем знак отрицательных чисел
+    System.Console.WriteLine($"Second digit {number}");
+}
+else System.Console.WriteLine("Mistake. You should enter a three-digit number!");
