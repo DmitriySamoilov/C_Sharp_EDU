@@ -27,8 +27,21 @@ return input;
 
 int number=InputIntNumber("");
 int k=1;
+string result="";
 if (number<0)  k=-1;                                // Для отрицательных чисел
 for (int i = 1; (i*k) <= (number*k); i+=k)
 {
-    System.Console.WriteLine($"куб {i} равно {GetCube(i)}");
+    result = result+$"куб {i} равен {GetCube(i)}"+'\n';
+}
+System.Console.WriteLine(result);
+
+OutPut(result,"Cube.txt");
+
+void OutPut(string result, string filename)     //Вывод в файл
+{
+using(FileStream fstream =new FileStream(filename,FileMode.OpenOrCreate))
+{
+    byte [] array=System.Text.Encoding.Default.GetBytes(result);
+    fstream.Write(array,0,array.Length);
+}
 }
