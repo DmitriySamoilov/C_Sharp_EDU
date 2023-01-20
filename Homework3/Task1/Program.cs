@@ -5,7 +5,9 @@
 
 //Console.Clear();
 System.Console.Write("Введите число/фразу (Пример: А роза упала на лапу Азора): ");
-string? input = Console.ReadLine().ToLower();
+string? input = Console.ReadLine();
+if (input == null) return;
+input = input.ToLower();
 
 input = BlankSpaceDel(input);                //Удалили пробелы
 
