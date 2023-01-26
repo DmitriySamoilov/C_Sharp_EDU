@@ -21,9 +21,10 @@ int InputIntNumber(string numberName)
 int number = InputIntNumber("");
 
 int sum=0;
-while(Math.Abs(number) >1)
+int absNumber=Math.Abs(number);
+while(absNumber >1)
 {
-    sum= sum + number%10;
-    number=number/10;
+    sum= sum + absNumber%10;
+    absNumber=absNumber/10;
 }
 System.Console.WriteLine($"Сумма цифр: {Math.Abs(sum)}");
