@@ -37,8 +37,7 @@ if ((a1 * b2 - a2 * b1) == 0)
     System.Console.WriteLine("The Parallel lines. The intersection point does not exist.");
     return;
 }
-double xIntersectionPointCoordinate = 0;
-double yIntersectionPointCoordinate = 0;
-FindIntersectionPointCoordinates(a1: a1, a2: a2, b1: b1, b2: b2, c1: c1, c2: c2, out xIntersectionPointCoordinate, out yIntersectionPointCoordinate);
+
+FindIntersectionPointCoordinates(a1: a1, a2: a2, b1: b1, b2: b2, c1: c1, c2: c2, out double xIntersectionPointCoordinate, out double yIntersectionPointCoordinate);
 
 System.Console.WriteLine($"Coordinates of the intersection point ({xIntersectionPointCoordinate:f2};{yIntersectionPointCoordinate:f2})");

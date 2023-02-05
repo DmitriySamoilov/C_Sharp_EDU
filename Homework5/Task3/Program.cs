@@ -6,16 +6,16 @@ int len = Convert.ToInt32(Console.ReadLine());
 double[] array = new double[len];
 Random rnd = new Random();
 
-FillRandomArray(array, len);
+FillArray(array, len);
 PrintArray(array, len);
 System.Console.WriteLine($"Max {array.Max()} Min {array.Min()} Разница max-min= {array.Max()-array.Min()}");
 
-void FillRandomArray(double[] array, int length)
+void FillArray(double[] array, int length)
 {
 
     for (int i = 0; i < length; i++)
     {
-        array[i] = Math.Round(rnd.NextDouble()*100,2);
+        array[i] = GenRandomDouble(-100,100, rnd);
     }
 }
 
@@ -27,4 +27,10 @@ void PrintArray(double[] array, int length)
         if (i < length - 1) System.Console.Write($" {array[i]} ; ");
         else System.Console.WriteLine($"{array[i]} ]");
     }
+}
+
+double GenRandomDouble(int a, int b, Random rnd)
+{
+  double rndDouble = a + rnd.NextDouble()*(b-a);
+  return rndDouble;
 }

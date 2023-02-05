@@ -10,13 +10,6 @@ int [] StringToIntArray(string sourceString) // Исходный string расс
     int[] arrayInt= Array.ConvertAll(arrayString,int.Parse);
     return  arrayInt;
 }
-void PrintArray(int [] array)   //Печатаем массив для проверки
-{
-foreach (int item in array)
-{
-    System.Console.Write($"{item} ");
-}
-}
 
 System.Console.Write("Input integer numbers: ");
 string ? inputedString=Console.ReadLine();
@@ -24,17 +17,18 @@ if (inputedString==null) {System.Console.WriteLine("Something is going wrong!");
 
 int [] array= StringToIntArray( inputedString);
 
-PrintArray(array);
+Console.WriteLine("{"+ String.Join(",", array)+"}");//Печатаем массив для проверки
 
-int count=0;
-foreach (int item in array)
-{
-    if (item>0) count++;
-}
+int count = array.Count(x => x > 0);
+System.Console.WriteLine($"{count} numbers more than 0");
 
-System.Console.WriteLine($"\n {count} more than 0 numbers");
+// foreach (int item in array)
+// {
+    // if (item>0) count++;
+// }
 
-
-
-
+// Console.Write("Введите элементы, используя между ними запятую: ");
+// int[] array = Array.ConvertAll(Console.ReadLine().Split(","), int.Parse);
+// int count = array.Count(x => x > 0);
+// Console.WriteLine($"Количество элементов больше ноля: {count}");
 
