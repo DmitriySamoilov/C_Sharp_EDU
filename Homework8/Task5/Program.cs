@@ -10,42 +10,43 @@ int m = Convert.ToInt32(Console.ReadLine());
 System.Console.Write("Input number of columns:");
 int n = Convert.ToInt32(Console.ReadLine());
 
-int count = m*n;
+int count = m * n;
 int[,] sArray = new int[m, n];
 
 SpiralFillArray(sArray);
+
 PrintArray2D(sArray);
 
 void SpiralFillArray(int[,] array, int a = 0)
-{   
-    int m=array.GetLength(0);
+{
+    int m = array.GetLength(0);
     int n = array.GetLength(1);
-    
-    if (a >= m || a >= n) return;
+
+    if (count<=0) return;
 
     for (int i = 0 + a; i < n - a; i++)
     {
-        if (array[0 + a, i] > 0) return;
         array[0 + a, i] = count;
         count--;
+        if (count<=0) return;
     }
     for (int j = 1 + a; j < m - a; j++)
     {
-        if (array[j, n - 1 - a] > 0) return;
         array[j, n - 1 - a] = count;
         count--;
+        if (count<=0) return;
     }
     for (int k = n - 2 - a; k >= 0 + a; k--)
     {
-        if (array[m - 1 - a, k] > 0) return;
         array[m - 1 - a, k] = count;
         count--;
+        if (count<=0) return;
     }
     for (int l = m - 2 - a; l > 0 + a; l--)
     {
-        if (array[l, 0 + a] > 0) return;
         array[l, 0 + a] = count;
         count--;
+        if (count<=0) return;
     }
 
     SpiralFillArray(array, a + 1);
